@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pradipchap/debounce-hooks.git"
+  },
   "keywords": [],
   "author": "Pradip Chapagain",
   "license": "ISC",
