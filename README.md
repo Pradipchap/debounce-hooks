@@ -90,15 +90,21 @@ The `debounceFunction` utility delays the execution of a callback function until
 #### Example 1: Debouncing a Window Resize Event
 
 ```tsx
-import { debounceFunction } from "debounce-hook";
+ const debouncedResize = debounceFunction(() => {
+    console.log("Window resized");
+  }, 2000);
 
-const handleResize = () => {
-  console.log("Resized window at", new Date());
-};
+  useEffect(() => {
+    const handleResize = () => {
+      debouncedResize();
+    };
 
-const debouncedResize = debounceFunction(handleResize, 500); // Debounce with 500ms delay
+    window.addEventListener("resize", handleResize);
 
-window.addEventListener("resize", debouncedResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 ```
 ## Contributing
 
